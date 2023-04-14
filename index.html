@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>2048</title>
+    <script src="https://cdn.jsdelivr.net/gh/ethereum/web3.js/dist/web3.min.js"></script>
+    <script type="text/javascript" src="abi.js"></script>
+    <script type="text/javascript" src="defi.js"></script>
+    <script type="text/javascript" src="show.js"></script>
+    <script type="text/javascript" src="pastEvents.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <link
+      rel="icon"
+      href="https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/foot2.png?v=1660707300693"
+      type="image/x-icon"
+    />
+    <link
+      rel="shortcut icon"
+      href="https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/foot2.png?v=1660707300693"
+      type="image/x-icon"
+    />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Anton&display=swap"); ;
+    </style>
+    <div class="container">
+      <div class="connectorBTN">
+        <div
+          id="account"
+          class="connectorBTN_TXT"
+          style="
+            color: WHITE;
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+          "
+        >
+          <button
+            class="addressBTN"
+            onclick="Walletconnect()"
+            type="button"
+            style="width: 105px; height: 35px; font-size: 20px; color: #eac100"
+          >
+            Connect
+          </button>
+        </div>
+      </div>
+
+      <div class="main" align="center">
+        <figcaption>
+          <img
+            src="https://icons.iconarchive.com/icons/blackvariant/button-ui-requests-2/512/2048-icon.png"
+            style="width: 40%"
+          />
+        </figcaption>
+      </div>
+
+      <div class="NFT_GIF_Frame" align="center">
+        <figcaption><br /></figcaption>
+        <figcaption><br /></figcaption>
+        <figcaption
+          class="Firstfreetext"
+          style="color: #eac100; font-family: 'Anton', sans-serif"
+          id="JackpotId"
+        >
+          累積獎金: ---
+        </figcaption>
+
+        <figcaption
+          class="Firstfreetext"
+          style="color: #eac100; font-family: 'Anton', sans-serif"
+          id="TimerId"
+        >
+          截止時間:---
+        </figcaption>
+        <figcaption
+          class="Firstfreetext"
+          style="color: #eac100; font-family: 'Anton', sans-serif"
+          id="Highest_scoreId"
+        >
+          目前最高分數: ---
+        </figcaption>
+        <figcaption
+          class="Firstfreetext"
+          style="
+            color: #eac100;
+            font-size: 18px;
+            font-family: 'Anton', sans-serif;
+          "
+          id="WinnerId"
+        >
+          目前優勝地址: ---
+        </figcaption>
+
+        <div
+          id="connectedId"
+          class="MintButton_Frame"
+          align="center"
+          style="
+            color: #eac100;
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+          "
+        >
+          Please Connect Wallet
+        </div>
+        <div
+          id="mintingId"
+          class="MintButton_Frame"
+          align="center"
+          style="
+            display: none;
+            color: #eac100;
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+          "
+        >
+          Playing...
+        </div>
+
+        <div
+          id="PlayId"
+          class="MintButton_Frame2"
+          align="center"
+          style="
+            display: none;
+            color: #ea7100;
+            font-family: 'Anton', sans-serif;
+            font-size: 30px;
+          "
+        >
+          參與遊戲 <br />請填入你的solver 地址
+
+          <div>
+            <input id="address" type="text" style="width: 360px" />
+          </div>
+          <div>
+            <button class="MintButton" onclick="mint()" type="button">
+              Play
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="withdrawId"
+          class="MintButton_Frame2"
+          align="center"
+          style="
+            display: none;
+            color: #ea7100;
+            font-family: 'Anton', sans-serif;
+            font-size: 30px;
+          "
+        >
+          恭喜獲勝
+          <div>
+            <button class="MintButton" onclick="withdraw()" type="button">
+              withdraw
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="erroreth"
+          class="MintButton_Frame2"
+          align="center"
+          style="
+            display: none;
+            color: #eac100;
+            font-family: 'Anton', sans-serif;
+            font-size: 20px;
+          "
+        >
+          Please Switch To Goerli Chain
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <p></p>
+    </div>
+
+    <div id="leaderboard" style="color: #eac100; display: none">
+      <h2>排行榜</h2>
+      <ol></ol>
+    </div>
+
+    <div
+      id="drawId"
+      align="center"
+      style="display: none; background-color: aliceblue"
+    >
+      獎金曲線圖
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div
+      id="TableId"
+      align="center"
+      style="color: #eac100; display: none; text-align: center ;width: 100%; overflow-x: auto;"
+    >
+      <table id="myTable">
+        <tr>
+          <th>提交時間</th>
+          <th>玩家地址</th>
+          <th>solver地址</th>
+          <th>gas消耗</th>
+          <th>得分</th>
+          <th>打破最高分紀錄</th>
+        </tr>
+      </table>
+    </div>
+    <div
+      id="EntertxId"
+      class="MintButton_Frame2"
+      align="center"
+      style="
+        color: #ea7100;
+        font-family: 'Anton', sans-serif;
+        font-size: 20px;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        align-items: center;
+      "
+    >
+      查看遊戲歷程 <br />請填入Internal Transactions Hash<br />資料取得較慢請耐心等待
+
+      <div>
+        <input id="tx" type="text" style="width: 360px" />
+      </div>
+      <div>
+        <button class="MintButton" onclick="getData()" type="button">
+          Run
+        </button>
+      </div>
+    </div>
+
+   
+      <div class="grid"></div>
+      <div id="gridId"
+        style="
+          display: none;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          justify-content: space-evenly;
+        "
+      >
+        <button class="MintButton" onclick="prevStep()">Prev</button>
+        <button class="MintButton" onclick="nextStep()">Next</button>
+      </div>
+ 
+  </body>
+</html>
