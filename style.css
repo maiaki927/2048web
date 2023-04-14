@@ -1,0 +1,477 @@
+/* a minimalist set of CSS resets */
+
+/* default to border-box */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  height: 100%;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+:root{
+  --RemainingSupply: 10000;
+  
+}
+.grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 10px;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+      }
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36px;
+  font-weight: bold;
+  background-color: #eee;
+  border-radius: 10px;
+}
+/* adjust typography defaults */
+body {
+  margin: 1rem;
+  font-family: sans-serif;
+  line-height: 1.5;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  background-color:#663c1e;
+/*   background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/BKY.png?v=1660746371321"); */
+}
+
+/* images and videos max out at full width */
+img,
+video {
+  height: auto;
+  max-width: 100%;
+}
+
+
+.container {
+    display: flex;
+    flex-basis: 200px;
+    justify-content: space-around;
+    align-items: center; 
+    flex-direction: column;
+    padding: -50px;
+    margin:60px 0px 0px 0px;
+}
+
+.addressstyle{
+  background-color:#F0753B;
+}
+
+.connectorBTN {
+  display: flex;
+  width: 100%;
+  flex-grow: 200px;
+  margin: -20px;
+  max-width: 980px;
+  justify-content: flex-end;
+}
+.connectorBTN2 {
+  display: flex;
+  width: 100%;
+  flex-grow: 200px;
+  max-width: 980px;
+  justify-content: flex-end;
+  margin: 40px;
+}
+.connectorBTN_TXT{
+  float: left;
+  left: -10px;
+  /*background-color:#F0753B;*/
+  padding: -3px;
+  width: 10%;
+  border-radius: 300px;
+  /*border:3px #4A1206 double;*/
+  text-align:center;
+  min-width: 112px;
+}
+.addressBTN{
+  background-color:#272727;
+  border-radius: 20px 20px 20px 20px;
+  
+}
+.addressBTN:active{background-color:#6C6C6C;}
+
+.ranking{
+  border:none;
+  float: center;
+  padding: -3px;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/9717/9717739.png");
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.ranking:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/TG_D.png?v=1660813421913");}
+
+
+/* CSS */
+#leaderboard {
+  width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#leaderboard-container {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  background-color: #272727;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.history{
+  border:none;
+  float: center;
+  padding: -3px;
+  background-image: url("https://cdn-icons-png.flaticon.com/512/2972/2972415.png");
+  background-repeat: repeat;
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 10px 10px 10px 10px;
+}
+.history:active {background-image: url("https://cdn-icons-png.flaticon.com/512/2972/2972415.png");}
+
+.showmyNFT{
+  background-image: url("https://icons.iconarchive.com/icons/blackvariant/button-ui-requests-2/512/2048-icon.png");
+  border:3px #EAC100 solid;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.showmyNFT:active {background-image: url("https://icons.iconarchive.com/icons/blackvariant/button-ui-requests-2/512/2048-icon.png");}
+
+.roadMap{
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/map.png?v=1660717968611");
+  border:3px #EAC100 solid;
+  border-radius: 10px 10px 10px 10px;
+  background-size: cover;
+}
+
+.roadMap:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/map_D.png?v=1660717970845");}
+
+.mintdogepage{
+  border:3px #EAC100 solid;
+  float: center;
+  padding: -3px;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/dog-house.png?v=1660717249459");
+  background-repeat: repeat;
+  border-radius: 10px 10px 10px 10px;
+}
+
+.mintdogepage:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/dog-house_D.png?v=1660717251559");}
+
+.main {
+  margin:10px 0px 35px 0px;
+  z-index: 1;
+}
+.main2 {
+  margin:-30px 0px 15px 0px;
+}
+
+.main3 {
+  margin:-30px 0px 15px 0px;
+}
+
+.TitleImage{
+  width: 60%;
+  max-width: 540px;
+}
+
+.NFT_GIF_Frame{
+  top: 33px;
+  margin: -100px 0px 0px 0px;
+  
+  float: left;
+  padding: 10px;
+  width: 50%;
+  background-size:60% 60%;
+  opacity: .8;
+  height: auto;
+  background-position:center center;
+  max-width: 420px;
+  min-width: 375px;
+  border-radius: 0px;
+  background-color:#272727;
+  border-radius: 30px 30px 30px 30px;
+  /*border:5px #AE0000 double;*/
+  /*border:5px #FF0000 solid;*/  
+}
+
+.NFT_GIF_Frame2{
+  top: 10px;
+  float: left;
+  padding: 10px;
+  width: 100%;
+  background-size: center;
+  opacity: .9;
+  height: 100%;
+  background-position:center center;
+  /*max-width: 400px;*/
+  border-radius: 0px;
+  /*border:3px #AE0000 double;*/
+  border:3px #EAC100 solid;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/Abstract_digital_background_2_generated.jpg?v=1660747580631");
+}
+
+.NFT_GIF_Frame3{
+  top: 10px;
+  float: left;
+  padding: 10px;
+  width: 80%;
+  background-size: center;
+  opacity: .9;
+  height: 80%;
+  background-position:center center;
+  /*max-width: 400px;*/
+  border-radius: 0px;
+  /*border:3px #AE0000 double;*/
+  border:3px #EAC100 solid;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/Abstract_digital_background_2_generated.jpg?v=1660747580631");
+}
+
+.MintINFO{
+  max-width: 380px;
+  border-radius: 0px;
+  background-color:#8E8E8E;
+  border:3px #AE0000 solid;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  flex-direction: column;
+  font-size: 25px;
+  padding: 0px;
+  height: auto;
+  
+  
+}
+
+.Firstfreetext{
+  font-size: 25px;
+  -webkit-text-stroke: 0.5px #FF0000;
+}
+
+.MintButton_Frame{
+  -webkit-text-stroke: 0.5px #FF0000;
+  width: 70%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  flex-direction: row;
+  font-size: 15px;
+  margin: 0 auto;
+  padding: 5px;
+}
+
+.MintButton_Frame2{
+  -webkit-text-stroke: 0.5px #FF0000;
+  z-index: 1;
+  width: 85%;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-around;
+  align-items: space-between; 
+  flex-direction: row;
+  font-size: 15px;
+  margin: 0 auto;
+  padding: 1px;
+}
+
+.MintButton_Frame3{
+  display: flex;
+  flex-direction: column;
+}
+
+.plusbutton{
+  width: 35px;
+  height: 32px;
+  border:none;
+  border-radius: 50px;
+  background-size: cover;
+  background-position:center;
+  background-color: transparent;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/plus.png?v=1660745048107");
+}
+.plusbutton:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/coinR_D.png?v=1660745623131");}
+
+.minusbutton{
+  width: 35px;
+  height: 32px;
+  border:none;
+  border-radius: 50px;
+  background-size: cover;
+  background-position:center;
+  background-color: transparent;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/grw3b3.png?v=1660742867963");
+}
+.minusbutton:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/coin_D.png?v=1660745621623");}
+
+.plusbutton10{
+  width: 35px;
+  height: 32px;
+  border:none;
+  border-radius: 50px;
+  background-size: cover;
+  background-position:center;
+  background-color: transparent;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/DBCR.png?v=1660747097893");
+}
+.plusbutton10:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/DBCR_D.png?v=1660747114761");}
+
+.minusbutton10{
+  width: 35px;
+  height: 32px;
+  border:none;
+  border-radius: 50px;
+  background-size: cover;
+  background-position:center;
+  background-color: transparent;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/DBC2.png?v=1660747008707");
+}
+.minusbutton10:active {background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/DBC_D.png?v=1660747112720");}
+
+.quantity{
+  font-size: 20px;
+  -webkit-text-stroke: 1px #FF0000;
+  display: flex;
+  flex-direction: column;
+  
+}
+.maxinfo{
+  font-size: 18px;
+  -webkit-text-stroke: 0.3px #FF0000;
+}
+.mintquantity{
+  display: flex;
+  align-items: center; 
+}
+
+.bulletinboard{
+  max-width: 400px;
+  width: 400px;
+  height: 400px;
+  background-image: url("https://cdn.glitch.global/12754b7f-f9cb-4a1c-a2cf-be4257b15fc1/BOARD.png?v=1654238317175");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.MintButton{
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  flex-direction: row;
+  padding: 10px;
+  background-color:#ea7100;
+  border:none;
+  border-radius: 30px 30px 30px 30px;
+  color: #EAC100; 
+  font-family: Anton;
+  width: 120px; height: 50px; font-size: 20px; color: white;MARGIN-bottom:10px;MARGIN-top:10px
+}
+.MintButton:active {background-color: #3C3C3C}
+
+
+.MintButtonCount{
+  background-color:#CC7722;
+  display: flex;
+  justify-content: space-around;
+  align-items: center; 
+  flex-direction: row;
+  padding: 10px;
+  border-radius: 300px;
+}
+
+
+
+
+/*.MintButton:active {}*/
+.MintButtonCount:active {background-color: #ab6621}
+
+@media screen and (max-width: 750px) {
+ .TitleImage, .NFT_GIF_Frame {
+    width: 100%; /* The width is 100% starting when the screen is 800px*/
+/*     height: 280px; */
+    max-width: 400px;
+   border-radius: 30px 30px 30px 30px;
+   
+  }
+  
+  .left {
+    width: 10%; /* The width is 100% starting when the screen is 800px*/
+    height: auto;
+    border-radius: 300px;
+  }
+  
+  #NFTShow {
+    padding: 5px;
+    max-width: 100%; /* max width is 100% of the div it's in */
+    height: auto;
+  }
+  
+}
+
+@media screen and (min-width: 750px) {
+  .bulletinboard{
+  max-width: 650px;
+  width: 650px;
+  height: 650px;
+  background-image: url("https://cdn.glitch.global/12754b7f-f9cb-4a1c-a2cf-be4257b15fc1/BOARD.png?v=1654238317175");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+}
+@media screen and (max-width: 375px) {
+  .bulletinboard{
+  max-width: 375px;
+  width: 375px;
+  height: 400px;
+  background-image: url("https://cdn.glitch.global/12754b7f-f9cb-4a1c-a2cf-be4257b15fc1/BOARD.png?v=1654238317175");
+}
+
+}
+
+@media screen and (max-width: 450px) {
+  .main3 {
+  margin:-30px 0px 15px 0px;
+}
+  .NFT_GIF_Frame3{
+  top: 10px;
+  float: left;
+  padding: 10px;
+  width: 100%;
+  background-size: center;
+  opacity: .9;
+  height: 100%;
+  background-position:center center;
+  /*max-width: 400px;*/
+  border-radius: 0px;
+  /*border:3px #AE0000 double;*/
+  border:3px #EAC100 solid;
+  background-image: url("https://cdn.glitch.global/ec76945f-b49d-4a31-9eef-599503007db7/Abstract_digital_background_2_generated.jpg?v=1660747580631");
+}
+  
+}
